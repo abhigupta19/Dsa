@@ -1,0 +1,67 @@
+/*package whatever //do not write package name here */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class GFG {
+    static ArrayList<ArrayList<Integer>>list=new ArrayList<>();
+	public static void main (String[] args) {
+		Scanner sc=new Scanner(System.in);
+        int t=sc.nextInt();
+        while(t-->0)
+        {
+            int m=sc.nextInt();
+            int n=sc.nextInt();
+            for(int i=0;i<m;i++)
+            {
+                list.add(i,new ArrayList<Integer>());
+                
+            }
+            for(int i=0;i<m;i++)
+            {
+                for(int j=0;j<n;j++)
+                {
+                    list.get(i).add(sc.nextInt());
+                }
+                
+            }
+            int p=sc.nextInt();
+            int q=sc.nextInt();
+            int r=sc.nextInt();
+            int e=list.get(p).get(q);
+            ab(list,p,q,r,m,n,e);
+            for(int i=0;i<m;i++)
+            {
+                for(int j=0;j<n;j++)
+                {
+                    System.out.print(list.get(i).get(j)+" ");
+                }
+            }
+           
+            System.out.println();
+            list.clear();
+        
+        }
+	}
+        public static void ab( ArrayList<ArrayList<Integer>>list,int p,int q,int r,int m,int n,int e)
+        {
+            if(p>=0 && p<m &&q>=0 &&q<n)
+            {
+                if(list.get(p).get(q)==e)
+                {
+                   list.get(p).set(q,r);
+                   ab(list,p+1,q,r,m,n,e);
+                   ab(list,p-1,q,r,m,n,e);
+                   ab(list,p,q+1,r,m,n,e);
+                   ab(list,p,q-1,r,m,n,e);
+                   //ab(list,p+1,q+1,r,m,n,e);
+                   //ab(list,p-1,q-1,r,m,n,e);
+                   //ab(list,p+1,q-1,r,m,n,e);
+                   //ab(list,p-1,q+1,r,m,n,e);
+                   
+                }
+            }
+        }
+	
+}
