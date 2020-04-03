@@ -1,0 +1,23 @@
+def binaray(b,i,j,m):
+    if(j>=i):
+        mid = (i+j)//2
+        if(b[mid]==m):
+            return 1
+        elif(b[mid]>m):
+            return binaray(b,i,mid-1,m)
+        elif(b[mid]<m):
+            return  binaray(b,mid+1,j,m)
+    else:
+        return -1
+        
+def ab():
+    n,m=map(int,input().split())
+    b=list(map(int,input().split()))
+    f=binaray(b,0,n-1,m)
+    print(f)
+    
+
+
+
+for i in range(0,int(input())):
+    ab()
