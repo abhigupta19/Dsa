@@ -19,5 +19,6 @@ def ab():
 
 
 
+
 for i in range(0,int(input())):
     ab()
