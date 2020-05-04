@@ -1,0 +1,98 @@
+/*package whatever //do not write package name here */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class GFG {
+    static int a[]={-2, -1, 1, 2, -2, -1, 1, 2};  
+    static int b[] = {-1, -2, -2, -1, 1, 2, 2, 1};  
+
+	public static void main (String[] args) {
+
+        Scanner sc=new Scanner(System.in);
+        int t=sc.nextInt();
+        while(t-->0)
+        {
+
+            int  n=sc.nextInt();
+            int m=sc.nextInt();
+            int x1=sc.nextInt();
+            int y1=sc.nextInt();
+            int x2=sc.nextInt();
+            int y2=sc.nextInt();
+            boolean bb[][]=new boolean[n+1][m+1];
+            for(int i=1;i<=n;i++)
+            {
+                for (int j=1;j<=m;j++)
+                {
+                    bb[i][j]=false;
+                }
+            }
+            Vector<AA> q=new Vector<>();
+            q.add(new AA(x1,y1,0));
+            bb[x1][y1]=true;
+            int aab=0;
+            while(q.size()!=0)
+            {
+                AA ac=q.firstElement();
+                q.remove(0);
+                int c=ac.x;
+                int d=ac.y;
+                int e=ac.z;
+                if(c==x2 && d==y2)
+                {
+                    if(e>=0)
+                    {
+                    System.out.println(e);
+                    aab=1;
+                    }
+                    break;
+                }
+                
+                for(int i=0;i<8;i++)
+                {
+                    int f=c+a[i];
+                    int h=d+b[i];
+                    if(f<=n && h<=m && f>=1 && h>=1)
+                    {
+                    if(!bb[f][h] )
+                    {
+
+                        int s=e+1;
+                        bb[f][h]=true;
+                        q.add(new AA(f,h,s));
+                        
+                    }
+                    }
+                        
+                }
+                
+            }
+            if(aab==0)
+            System.out.println(-1);
+        }
+	}
+}
+class AA
+{
+    int x;
+    int y;
+    int z;
+    AA(int x,int y,int z)
+    {
+        this.x=x;
+        this.y=y;
+        this.z=z;
+    }
+}
+class AB
+{
+    int x;
+    int y;
+    AB(int x,int y)
+    {
+        this.x=x;
+        this.y=y;
+    }
+}
