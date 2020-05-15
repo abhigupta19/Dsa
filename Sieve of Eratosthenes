@@ -1,0 +1,14 @@
+a=50
+b=[True]*51
+b[0]=False
+b[1]=False
+p=2
+while(p*p<=a):
+    if(b[p]):
+        for i in range(p*p,51,p):
+            b[i]=False
+    p=p+1
+for i in range(0,len(b)):
+    if(b[i]):
+        print(i,end=" ")
+  
